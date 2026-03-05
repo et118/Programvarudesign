@@ -21,7 +21,4 @@ public:
     bool setSelectedInteractionOption(std::string &option);
     std::string startSelectedInteraction();
     std::string getName();
-
-
-
 };
