@@ -1,7 +1,7 @@
-#include "VolcanoScene.h"
+#include "../../../include/GameLogic/GameWorld/VolcanoScene.h"
 #include "../../../include/CharacterManagement/Character.h"
-#include "include/GameLogic/GameWorld/GameObjects/Rock.h"
-#include "include/GameLogic/GameWorld/GameObjects/Lava.h"
+#include "../../../include/GameLogic/GameWorld/GameObjects/Rock.h"
+#include "../../../include/GameLogic/GameWorld/GameObjects/Lava.h"
 VolcanoScene::VolcanoScene()
     : Scene("Vesuvius")
 {
