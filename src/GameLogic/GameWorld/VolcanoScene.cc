@@ -16,8 +16,4 @@ VolcanoScene::VolcanoScene()
 
     this->objects.push_back(new Rock());
     this->objects.push_back(new Lava());
-
-
-
-
 }

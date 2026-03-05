@@ -6,13 +6,8 @@ class Inspect : public InteractionType
 private:
     std::string description;
 public:
-    Inspect(std::string description) : InteractionType("Inspect"), description(description)
-    {
-    }
+    Inspect(std::string description);
 
-    std::string start()
-    {
-        return this->description;
-    }
+    std::string start();
 
 };

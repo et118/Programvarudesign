@@ -37,16 +37,8 @@ private:
     Scene* currentScene;
     Scene* inventory;
 public:
-    Game()
-    {
-        this->currentScene = new VolcanoScene();
-        this->inventory = new InventoryScene();
-    }
-    ~Game()
-    {
-        delete this->currentScene;
-        delete this->inventory;
-    }
+    Game();
+    ~Game();
     std::vector<std::string> selectObject(std::string &gameObjectName);
     std::vector<std::string> selectInteraction(std::string &interactionType);
     // Since this is a minimal viable product
@@ -55,7 +47,7 @@ public:
     std::string startInteraction();
     std::unique_ptr<CharacterInterface> initiateConversation(std::string theCharacter);
     Scene* getCurrentScene();
-    std::string getCurrentSceneName() { return this->currentScene->getName(); }
+    std::string getCurrentSceneName();
     Scene* getInventory();
 
 };

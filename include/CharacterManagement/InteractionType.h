@@ -19,8 +19,8 @@ protected:
 public:
     InteractionType(std::string name);
 
-    std::vector<std::string> getInteractionOptions() { return this->interactionOptions; }
-    bool setOption(std::string &option) { this->selectedOption = option; };
+    std::vector<std::string> getInteractionOptions();
+    bool setOption(std::string &option);
     virtual std::string start();
-    std::string getName() { return this->name; }
+    std::string getName();
 };
