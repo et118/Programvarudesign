@@ -1,9 +1,9 @@
 #pragma once
-#include "GameObjects/GameObject.h"
+#include "./GameWorld/GameObjects/GameObject.h"
 #include "../CharacterManagement/InteractionType.h"
 #include "../CharacterManagement/CharacterInterface.h"
-#include "include/GameLogic/GameWorld/VolcanoScene.h"
-#include "include/GameLogic/GameWorld/InventoryScene.h"
+#include "./GameWorld/VolcanoScene.h"
+#include "./GameWorld/InventoryScene.h"
 #include "../UI/UserInterface.h"
 #include "GameWorld/Scene.h"
 #include <vector>
