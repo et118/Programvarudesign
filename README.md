@@ -13,9 +13,9 @@ TODO:
 - [ ] Character.h
 - [ ] CharacterInterface.h
 ### krundhall
-- [ ] Game.h
-- [ ] InteractionEngine.h //GL!!!
-- [ ] PlotEngine.h
+- [x] Game.h
+- [x] InteractionEngine.h //GL!!!
+- [x] PlotEngine.h
 ### nozzelozze
 - [ ] Scene.h
 - [ ] InputSanitiser.h //Unsure if this one is really needed. But its only a single function to implement. So can't hurt.
@@ -34,4 +34,3 @@ TODO:
 ## arguably if we even need these
 - [ ] CharacterRepository.h
 - [ ] GameObjectRepository.h
-
