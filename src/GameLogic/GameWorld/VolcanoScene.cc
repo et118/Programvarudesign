@@ -22,7 +22,7 @@ VolcanoScene::VolcanoScene()
     this->characters.push_back(new Character("Spider-Man", "Woah!", {
         {
             {"Hey man, uhm, are you spiderman?", "Yes, wassup? Who else would I be?"},
-            {"Why are you in this volcano?", "No clue. I was on my way home to aunt May, and then I just found myself here. #.#.#\nSomething mysterious is going on"}
+            {"Why are you in this volcano?", "No clue. I was on my way home to aunt May, and then I just found myself here. ###.###.###.\nSomething mysterious is going on"}
         }
     }));
 

@@ -36,7 +36,7 @@ std::vector<std::string> GameObject::selectInteraction(std::string &interactionT
 }
 
 bool GameObject::setSelectedInteractionOption(std::string &option) {
-    this->currentInteraction->setOption(option);
+    return this->currentInteraction->setOption(option);
 }
 
 std::string GameObject::startSelectedInteraction() {

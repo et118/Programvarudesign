@@ -21,6 +21,6 @@ public:
 
     std::vector<std::string> getInteractionOptions();
     bool setOption(std::string &option);
-    virtual std::string start();
+    virtual std::string start() = 0;
     std::string getName();
 };

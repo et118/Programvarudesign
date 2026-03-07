@@ -8,6 +8,6 @@ private:
 public:
     Throw(std::string objectName);
 
-    std::string start();
+    std::string start() override;
 
 };
