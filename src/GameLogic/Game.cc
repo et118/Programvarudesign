@@ -43,12 +43,12 @@ std::string Game::startInteraction()
 
 std::unique_ptr<CharacterInterface> Game::initiateConversation(std::string theCharacter)
 {
-    /*
-    when a player starts a conversation, game creates a characterinterface ig?
-    if i understood it correctly, games only responsibility is to create it and own it
-    thus the only implementation is actually creating it and returning it
-    and leaving all logic for the interface in itself
-    */
+    if (!this->currentScene->isAvailable(theCharacter)) return nullptr;
+
+    /* PhoneBook::getInstance().getContactMethod(theCharacter) Removed check because we dont use phonebook in this implementation*/
+
+    /* We moved activate() outside of this function, since it will return a response, and this function is only responsible for creating the CharacterInterface */
+
     return std::make_unique<CharacterInterface>(theCharacter);
 }
 
