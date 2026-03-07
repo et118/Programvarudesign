@@ -8,6 +8,6 @@ private:
 public:
     Taste(std::string description);
 
-    std::string start();
+    std::string start() override;
 
 };

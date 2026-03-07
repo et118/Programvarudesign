@@ -1,0 +1,7 @@
+.vscode
+docs
+.dockerignore
+.gitignore
+Dockerfile
+makefile
+README.md

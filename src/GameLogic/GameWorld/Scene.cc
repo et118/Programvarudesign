@@ -2,6 +2,35 @@
 
 Scene::Scene(std::string name) : name(name) {}
 
+GameObject* Scene::findGameObject(std::string &gameObjectName) {
+    for(GameObject* gameObject : this->objects) {
+        if(gameObject->getName() == gameObjectName) {
+            return gameObject;
+        }
+    }
+    return nullptr;
+}
+
+Character* Scene::findCharacter(std::string &characterName) {
+    for(Character* character : this->characters) {
+        if(character->getName() == characterName) {
+            return character;
+        }
+    }
+    return nullptr;
+}
+
+bool Scene::isAvailable(std::string &theCharacter) {
+    bool found = false;
+    for(Character* character : this->characters) {
+        if(character->getName() == theCharacter) {
+            found = true;
+            break;
+        }
+    }
+    return found;
+}
+
 std::string Scene::getName() const { return this->name; }
 
 std::vector<std::string> Scene::getCharacters()

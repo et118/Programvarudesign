@@ -9,16 +9,16 @@ TODO:
 - [ ] Proper Documentation of changes not in the diagrams.
 
 ### et118
-- [ ] GameObject.h
-- [ ] Character.h
-- [ ] CharacterInterface.h
+- [x] GameObject.h
+- [x] Character.h
+- [x] CharacterInterface.h
 ### krundhall
 - [x] Game.h
 - [x] InteractionEngine.h //GL!!!
 - [x] PlotEngine.h
 ### nozzelozze
-- [ ] Scene.h
-- [ ] InputSanitiser.h //Unsure if this one is really needed. But its only a single function to implement. So can't hurt.
+- [x] Scene.h
+- [x] InputSanitiser.h //Unsure if this one is really needed. But its only a single function to implement. So can't hurt.
 - [ ] PhoneBook.h
 ## free pickings
 - [x] Inspect.h
