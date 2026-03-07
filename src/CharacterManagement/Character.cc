@@ -9,7 +9,7 @@ std::pair<std::string, std::vector<std::string>> Character::getResponseAndConver
     }
 
     std::vector<std::string> conversationOptions;
-    std::string response;
+    std::string response = this->initialGreeting;
     for(auto& pair : this->conversationOptions.at(plotState)) {
         if(pair.first == parsedQuery) {
             response = pair.second;

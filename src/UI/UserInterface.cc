@@ -122,7 +122,7 @@ void UserInterface::start()
                         print_slowly("Invalid option. Please try again\n");
                     } else {
                         result = interface->sendQuery(result[option]);
-                        print_slowly(result[0]);
+                        print_slowly(chosenCharacter + ": " + result[0]);
                         break;
                     }
                 }
