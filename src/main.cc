@@ -9,9 +9,7 @@
 
 int main(int argc, char* argv[]) {
 
-    UserInterface ui = UserInterface(&game);
-
+    UserInterface ui;
     ui.start();
-
     return 0;
 }

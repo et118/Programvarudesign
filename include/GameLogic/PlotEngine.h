@@ -2,6 +2,10 @@
 #include <string>
 class PlotEngine
 {
+private:
+    int currentPlotStep = 0;
 public:
-    std::string getPlotState();
+    int getPlotState(); //used to return string, changed to int
+    static PlotEngine& getInstance();
+    void advancePlot();
 };

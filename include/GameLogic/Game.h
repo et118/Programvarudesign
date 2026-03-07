@@ -43,7 +43,7 @@ public:
     std::vector<std::string> selectInteraction(std::string &interactionType);
     // Since this is a minimal viable product
     // we have decided to change "setInteractionOptions" to be singular
-    bool setInteractionOption(std::string option);
+    bool setInteractionOption(std::string &option);
     std::string startInteraction();
     std::unique_ptr<CharacterInterface> initiateConversation(std::string theCharacter);
     Scene* getCurrentScene();
