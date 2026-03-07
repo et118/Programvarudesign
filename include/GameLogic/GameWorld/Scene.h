@@ -13,6 +13,7 @@ protected:
 public:
     Scene(std::string name);
     GameObject* findGameObject(std::string &gameObjectName);
+    Character* findCharacter(std::string &characterName); //Extra utility function added
     bool isAvailable(std::string &theCharacter);
     std::string getName() const;
     std::vector<std::string> getCharacters(); //Returns the names of all characters

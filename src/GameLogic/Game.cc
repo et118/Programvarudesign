@@ -49,7 +49,7 @@ std::unique_ptr<CharacterInterface> Game::initiateConversation(std::string theCh
 
     /* We moved activate() outside of this function, since it will return a response, and this function is only responsible for creating the CharacterInterface */
 
-    return std::make_unique<CharacterInterface>(theCharacter);
+    return std::make_unique<CharacterInterface>(this->currentScene->findCharacter(theCharacter));
 }
 
 Scene* Game::getCurrentScene()

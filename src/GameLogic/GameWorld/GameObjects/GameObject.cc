@@ -1,6 +1,7 @@
 #include "../../../../include/GameLogic/GameWorld/GameObjects/GameObject.h"
 
 GameObject::GameObject(std::string name) : name(name) {}
+
 GameObject::~GameObject() {
     for(InteractionType* type : interactionTypes) {
         delete type;

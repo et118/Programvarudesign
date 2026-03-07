@@ -11,6 +11,15 @@ GameObject* Scene::findGameObject(std::string &gameObjectName) {
     return nullptr;
 }
 
+Character* Scene::findCharacter(std::string &characterName) {
+    for(Character* character : this->characters) {
+        if(character->getName() == characterName) {
+            return character;
+        }
+    }
+    return nullptr;
+}
+
 bool Scene::isAvailable(std::string &theCharacter) {
     bool found = false;
     for(Character* character : this->characters) {

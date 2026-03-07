@@ -1,5 +1,4 @@
 #include "../../include/GameLogic/PlotEngine.h"
-#include <string>
 
 int PlotEngine::getPlotState()
 {
