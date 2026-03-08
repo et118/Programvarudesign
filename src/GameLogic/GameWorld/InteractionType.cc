@@ -1,4 +1,4 @@
-#include "../../include/CharacterManagement/InteractionType.h"
+#include "../../../include/GameLogic/GameWorld/InteractionType.h"
 
 InteractionType::InteractionType(std::string name) : name(name) {}
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "../../../CharacterManagement/InteractionType.h"
+#include "../InteractionType.h"
 #include <vector>
 #include <string>
 class GameObject

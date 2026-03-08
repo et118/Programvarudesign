@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../include/GameLogic/Game.h"
 #include "../include/UI/UserInterface.h"
 
@@ -8,8 +7,9 @@
 */
 
 int main(int argc, char* argv[]) {
+    Game game = Game();
 
     UserInterface ui;
-    ui.start();
+    ui.start(&game);
     return 0;
 }

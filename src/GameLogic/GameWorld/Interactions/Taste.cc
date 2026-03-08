@@ -1,4 +1,4 @@
-#include "../../../include/CharacterManagement/Interactions/Taste.h"
+#include "../../../../include/GameLogic/GameWorld/Interactions/Taste.h"
 
 Taste::Taste(std::string description) : InteractionType("Taste"), description(description) {}
 

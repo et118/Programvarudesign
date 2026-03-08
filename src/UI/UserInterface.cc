@@ -1,6 +1,5 @@
 #include "../../include/UI/UserInterface.h"
 #include "../../include/CharacterManagement/CharacterInterface.h"
-#include "../../include/GameLogic/Game.h"
 #include <iostream>
 #include <thread>
 #include <algorithm>
@@ -18,27 +17,35 @@ void UserInterface::print_slowly(std::string line) {
     }
 }
 
-void UserInterface::start()
-{
-    Game game = Game();
+void UserInterface::start(Game* game)
+{   
+    std::vector<std::string> gameObjects = game->getCurrentScene()->getObjects();
+    std::vector<std::string> characters = game->getCurrentScene()->getCharacters();
 
-    
-    std::vector<std::string> gameObjects = game.getCurrentScene()->getObjects();
-    std::vector<std::string> characters = game.getCurrentScene()->getCharacters();
+    //Clear screen
+    std::cout << "\033[2J\033[1;1H\n\n";
 
-    print_slowly("\nYou find yourself in " + game.getCurrentSceneName() + "\n");
-    print_slowly("---In the room you see these characters:---\n");
+    std::cout<< "────────────────You find yourself in " + game->getCurrentSceneName() + "────────────────\n";
+    print_slowly("\033[1mYou can see these characters:\033[0m\n");
     for(std::string character : characters) {
-        print_slowly(character + "\n");
+        print_slowly(">" + character + "\n");
     }
-    print_slowly("\n---You can also see these objects:---\n");
+    print_slowly("\n\033[1mYou can also see these objects:\033[0m\n");
     for(std::string object : gameObjects) {
-        print_slowly(object + "\n");
+        print_slowly(">" + object + "\n");
+    }
+
+    print_slowly("\n\033[1mYour inventory contains the following:\033[0m\n");
+    for(std::string object : game->getInventory()->getObjects()) {
+        print_slowly(">" + object + "\n");
+    }
+    for(std::string character : game->getInventory()->getCharacters()) {
+        print_slowly(">" + character + "\n");
     }
 
     int choice;
     while(true) {
-        print_slowly("\n\n---What do you want to do?---\n");
+        std::cout << "\n\n───────────────────What do you want to do?───────────────────\n";
         print_slowly("1) Interact with object\n");
         print_slowly("2) Interact with character\n");
         print_slowly("3) Exit the game\n");
@@ -49,7 +56,7 @@ void UserInterface::start()
                 see InteractWithObject.png
             */
             //Select object to interact with
-            print_slowly("\n---Which object do you wanna interact with?---\n");
+            print_slowly("\n\033[1mWhich object do you wanna interact with?\033[0m\n");
             for(std::string object : gameObjects)
                 print_slowly(">" + object + "\n");
 
@@ -58,8 +65,8 @@ void UserInterface::start()
                 getline(std::cin, chosenObject);
             }
             //Select what interaction to run
-            print_slowly(std::string("\n---What do you wanna do with the ") + chosenObject + "?---\n");
-            std::vector<std::string> interactions = game.selectObject(chosenObject);
+            print_slowly(std::string("\n\033[1mWhat do you wanna do with the ") + chosenObject + "?\033[0m\n");
+            std::vector<std::string> interactions = game->selectObject(chosenObject);
 
             for(std::string interaction : interactions)
                 print_slowly(">" + interaction + "\n");
@@ -70,9 +77,9 @@ void UserInterface::start()
             }
 
             //Select interaction options (optional)
-            std::vector<std::string> options = game.selectInteraction(chosenInteraction);
+            std::vector<std::string> options = game->selectInteraction(chosenInteraction);
             if(options.size() > 0) {
-                print_slowly("\n---Please select an option---\n");
+                print_slowly("\n\033[1mPlease select an option\033[0m\n");
                 for (int i = 0; i < options.size(); i++)
                     print_slowly( std::to_string(i) + ") " + options[i] + '\n');
 
@@ -80,35 +87,35 @@ void UserInterface::start()
                 while(true) {
                     std::cin >> option;
                     if (option < 0 || option > options.size() - 1) {
-                        print_slowly("Invalid option. Please try again\n");
+                        print_slowly("\033[1mInvalid option. Please try again\033[0m\n");
                     } else {
-                        game.setInteractionOption(options[option]);
+                        game->setInteractionOption(options[option]);
                         break;
                     }
                 }
             }
-            print_slowly(game.startInteraction());
+            print_slowly(game->startInteraction());
         } else if (choice == 2) {
             /*2) INTERACT WITH CHARACTER
                 see ms-interaction-diag-interact-with-character.png
             */
 
             //Select character to interact with
-            print_slowly("\n---Which character do you wanna interact with?---\n");
+            print_slowly("\n\033[1mWhich character do you wanna interact with?\033[0m\n");
             for(std::string character : characters)
-                print_slowly("-" + character + "\n");
+                print_slowly(">" + character + "\n");
             
             std::string chosenCharacter;
             while(std::count(characters.begin(), characters.end(), chosenCharacter) == 0) {
                 getline(std::cin, chosenCharacter);
             }
-            std::unique_ptr<CharacterInterface> interface = game.initiateConversation(chosenCharacter);
+            std::unique_ptr<CharacterInterface> interface = game->initiateConversation(chosenCharacter);
             std::vector<std::string> result = interface->activate();
             print_slowly(chosenCharacter + ": " + result[0]); //Printing the character greeting
             
             //Select dialogue option
             while(true) {
-                print_slowly("\n---Options---\n");
+                print_slowly("\n\033[1mPlease select an option:\033[0m\n");
                 print_slowly("0) Exit conversation\n");
                 for(int i = 1; i < result.size(); i++)
                     print_slowly(std::to_string(i) + ") " + result[i] + "\n");
@@ -119,7 +126,7 @@ void UserInterface::start()
                     if (option == 0) {
                         break;
                     } else if (option < 0 || option > result.size() - 1) {
-                        print_slowly("Invalid option. Please try again\n");
+                        print_slowly("\033[1mInvalid option. Please try again\033[0m\n");
                     } else {
                         result = interface->sendQuery(result[option]);
                         print_slowly(chosenCharacter + ": " + result[0]);
@@ -131,7 +138,7 @@ void UserInterface::start()
         } else if (choice == 3) {
             break;
         } else {
-            print_slowly("Invalid choice, please try again\n");
+            print_slowly("\033[1mInvalid choice, please try again\033[0m\n");
         }
     }
     

@@ -12,6 +12,7 @@ protected:
     std::vector<GameObject*> objects;
 public:
     Scene(std::string name);
+    ~Scene();
     GameObject* findGameObject(std::string &gameObjectName);
     Character* findCharacter(std::string &characterName); //Extra utility function added
     bool isAvailable(std::string &theCharacter);

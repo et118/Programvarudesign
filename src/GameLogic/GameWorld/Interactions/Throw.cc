@@ -1,4 +1,4 @@
-#include "../../../include/CharacterManagement/Interactions/Throw.h"
+#include "../../../../include/GameLogic/GameWorld/Interactions/Throw.h"
 
 Throw::Throw(std::string objectName) : InteractionType("Throw"), objectName(objectName)
 {

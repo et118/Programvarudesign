@@ -2,14 +2,6 @@
 #include <string>
 #include <vector>
 
-/*
-    Populate the "interactionOptions" membervariable in the ctor
-    getInteractionOptions returns this list of strings
-    setOption selects one of the options (sets the selectedOption membervariable)
-    start() starts the interaction.
-*/
-
-
 class InteractionType
 {
 protected:
@@ -21,6 +13,7 @@ public:
     virtual ~InteractionType() = default;
 
     std::vector<std::string> getInteractionOptions();
+    //For this MVP we decided to only allow one option to be set.
     bool setOption(std::string &option);
     virtual std::string start() = 0;
     std::string getName();

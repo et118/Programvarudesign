@@ -1,4 +1,4 @@
-#include "../../../include/CharacterManagement/Interactions/Inspect.h"
+#include "../../../../include/GameLogic/GameWorld/Interactions/Inspect.h"
 
 Inspect::Inspect(std::string description) : InteractionType("Inspect"), description(description) {}
 
