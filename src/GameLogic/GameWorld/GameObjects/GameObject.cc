@@ -1,4 +1,5 @@
 #include "../../../../include/GameLogic/GameWorld/GameObjects/GameObject.h"
+#include <stdexcept>
 
 GameObject::GameObject(std::string name) : name(name) {}
 
@@ -31,8 +32,20 @@ std::vector<std::string> GameObject::selectInteraction(std::string &interactionT
             return type->getInteractionOptions();
         }
     }
+
+    throw std::invalid_argument("Interaction not found: " + interactionType);
+
+    /*
     std::vector<std::string> empty;
     return empty;
+
+    used to return a empty vector - problem arose when writing unit tests
+    Rock, Taste has no interactiontypes, meaning it returns a empty vector when it worked like it should
+    But if this method couldnt find the interactionType, it would return a empty vector
+    Essentially making it impossible to test for a positive/negative case
+
+    Changing to throw when getting to the branch where it could not find a matching interactionType
+    */
 }
 
 bool GameObject::setSelectedInteractionOption(std::string &option) {

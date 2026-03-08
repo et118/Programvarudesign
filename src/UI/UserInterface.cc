@@ -22,7 +22,7 @@ void UserInterface::start()
 {
     Game game = Game();
 
-    
+
     std::vector<std::string> gameObjects = game.getCurrentScene()->getObjects();
     std::vector<std::string> characters = game.getCurrentScene()->getCharacters();
 
@@ -97,7 +97,7 @@ void UserInterface::start()
             print_slowly("\n---Which character do you wanna interact with?---\n");
             for(std::string character : characters)
                 print_slowly("-" + character + "\n");
-            
+
             std::string chosenCharacter;
             while(std::count(characters.begin(), characters.end(), chosenCharacter) == 0) {
                 getline(std::cin, chosenCharacter);
@@ -105,7 +105,7 @@ void UserInterface::start()
             std::unique_ptr<CharacterInterface> interface = game.initiateConversation(chosenCharacter);
             std::vector<std::string> result = interface->activate();
             print_slowly(chosenCharacter + ": " + result[0]); //Printing the character greeting
-            
+
             //Select dialogue option
             while(true) {
                 print_slowly("\n---Options---\n");
@@ -134,5 +134,5 @@ void UserInterface::start()
             print_slowly("Invalid choice, please try again\n");
         }
     }
-    
+
 }
