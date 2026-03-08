@@ -11,8 +11,7 @@ VolcanoScene::VolcanoScene()
             {"Who are you?", "I'm Jonas ofcourse"},
             {"Why are you here in this Volcano?", "I dunno, I tried to finish my morning coffee and then I suddenly found myself here"},
             {"Hej på dig", "Hej på dig med"},
-            {"Så... hur är det med frugan?", "lika dåligt som vanligt :("},
-            {"Ouch, jag ska nog lämna dig här då", "..."}
+            {"Så... hur är det med frugan?", "lika dåligt som vanligt :("}
         },
         //At plotState 1
         {
