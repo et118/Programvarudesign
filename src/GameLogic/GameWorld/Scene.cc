@@ -12,6 +12,7 @@ Scene::~Scene() {
 }
 
 GameObject* Scene::findGameObject(std::string &gameObjectName) {
+    /* Returns a nullptr when object cant be found */
     for(GameObject* gameObject : this->objects) {
         if(gameObject->getName() == gameObjectName) {
             return gameObject;

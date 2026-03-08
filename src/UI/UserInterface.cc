@@ -112,7 +112,7 @@ void UserInterface::start(Game* game)
             std::unique_ptr<CharacterInterface> interface = game->initiateConversation(chosenCharacter);
             std::vector<std::string> result = interface->activate();
             print_slowly(chosenCharacter + ": " + result[0]); //Printing the character greeting
-            
+
             //Select dialogue option
             while(true) {
                 print_slowly("\n\033[1mPlease select an option:\033[0m\n");
@@ -141,5 +141,5 @@ void UserInterface::start(Game* game)
             print_slowly("\033[1mInvalid choice, please try again\033[0m\n");
         }
     }
-    
+
 }

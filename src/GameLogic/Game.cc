@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <stdexcept>
 
 Game::Game()
 {
@@ -17,6 +18,9 @@ Game::~Game() {
 std::vector<std::string> Game::selectObject(std::string &gameObjectName)
 {
     this->currentGameObject = currentScene->findGameObject(gameObjectName);
+
+    if (this->currentGameObject == nullptr)
+        throw std::invalid_argument("Object not found: " + gameObjectName);
 
     return currentGameObject->listInteractionTypes();
 }
